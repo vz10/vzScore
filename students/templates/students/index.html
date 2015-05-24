@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>vZ's &middot; score</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="vZ">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@vz10" />
+<meta name="twitter:creator" content="@vz10" />
+<meta name="twitter:title" content="Только здесь все оценки по информатике и не только..."/>
+<meta name="twitter:description" content="Уникальная возможность узнать обо всех своих оценках, а также о ценных, хоть и виртуальных, наградах. Плюс к этому можно выяснить кто главный неудачник школы в этом сезоне. Не проходите мимо!"/>
+<meta name="twitter:image:src" content="http://dl.dropboxusercontent.com/u/20018982/backToSchool.jpg"/>
+
+
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <style type="text/css">
+
+    .marketing {
+        margin: 60px 0;
+    }
+</style>
+
+</head>
+<body>
+<div class="container-big">
+    <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">Главная</a></li>
+            <li><a href="{{ urlPattern }}choice/">Оценки</a></li>
+
+            <li><a href="{{ urlPattern }}visitChoice/">Посещения</a></li>
+            <li ><a href="{{ urlPattern }}achieve/">Достижения</a></li>
+            <li><a href="{{ urlPattern }}about/">Описание</a></li>
+       <!--     <li><a href="{{ urlPattern }}test/">Тестирование</a></li>  -->
+            <li><a href="{{ urlPattern }}contacts/">Контакты</a></li>
+        </ul>
+
+        <h3 class="muted">vZ's score</h3>
+    </div>
+</div>
+
+<hr>
+<div class="container-big">
+    <img src="{% static "images/rabbid.jpg" %}" alt="" class="img-rounded">
+</div>
+
+<div class="container-narrow">
+    <div class="jumbotron">
+        <h1>vZ's score</h1>
+   <!--     <hr>
+        <p class="lead">Эта оранжевая кнопочка позволит вам зарегистрироваться в такой специально штуке, где вы сможете постоянно быть в курсе что вам задали на дом, что вы уже сделали,
+        а что еще только предстоит сделать. В общем, быстро регистрируйтесь, а потом уже разберетесь.</p>
+        <a class="btn btn-warning" href="https://trello.com/vz10/recommend" target="_blank">ВАЖНО <br> Зарегестрироваться в системе автоматического <br> получения домашних заданий
+            </a> -->
+        <hr>
+        <p class="lead">Милые детишечки, тут вы сможете ознакомиться со своими оценками. Как по уже пройденным темам,
+            так и по той теме, которая в данный момент вами постигается, с тем или иным успехом.</p>
+        <a class="btn btn-large btn-success" href="{{ urlPattern }}choice/">Увидеть справедливую оценку своих
+            знаний</a>
+    </div>
+    <hr>
+    <div class="row-fluid marketing">
+        <div class="col-lg-6">
+            <h4>Преимущества</h4>
+            <p>Только здесь вы гарантированно сможете увидеть 12 и свою фамилию в одной строке ... на некоторое
+                время</p>
+            <h4>Что это за хрень?</h4>
+            <p>Вам в раздел "Описание". Там все подробно описано и даже нарисовано</p>
+            <br><br>
+            <h4>Ободряющие факты</h4>
+            <p>За 1 минуту головной мозг сжигает 0,1 калорий. Во время серьезного умственного труда эта цифра достигает 1,5 калорий.</p>
+        </div>
+        <div class="col-lg-6">
+            <h4>Как улучшить оценку</h4>
+
+            <p>Включить мозг и начинать учиться.</p>
+            <br><br>
+            <h4>Возможное удивление</h4>
+
+            <p>Если вам кажется, что ваша оценка уменьшается слишком быстро &#8211; не удивляйтесь. Просто в этом мире
+                все так скоротечно</p>
+            <h4>Контакты</h4>
+
+            <p>Все жалобы, проклятья, угрозы, предложения шантажа и подкупа, а также похвалы и благодарности можете
+                присылать по адресам указанным на странице контактов.</p>
+        </div>
+    </div>
+    <hr>
+    <div class="footer">
+        <p>&copy; vZ 2015</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42499564-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

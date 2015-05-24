@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>vZ's &middot; score</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="vZ">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@vz10" />
+    <meta name="twitter:creator" content="@vz10" />
+    <meta name="twitter:title" content="Только здесь все оценки по информатике и не только..."/>
+    <meta name="twitter:description" content="Уникальная возможность узнать обо всех своих оценках, а также о ценных, хоть и виртуальных, наградах. Плюс к этому можно выяснить кто главный неудачник школы в этом сезоне. Не проходите мимо!"/>
+    <meta name="twitter:image:src" content="http://dl.dropboxusercontent.com/u/20018982/backToSchool.jpg"/>
+
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+
+    <style type="text/css">
+
+    .featurette {
+        padding-top: 40px;
+        overflow: hidden;
+    }
+
+    .featurette-image {
+        margin-top: -40px;
+    }
+
+
+    .featurette-image.pull-right {
+        margin-left: 20px;
+    }
+
+    .featurette-heading {
+        font-size: 45px;
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -1px;
+    }
+
+.example2 {
+    display:inline-block;
+    position:relative;
+ 
+}
+.overImage{
+    display:inline-block;
+    position:absolute;
+
+
+}
+
+.overImage.Left{
+    color:#24c245;
+    align:right;
+    bottom:85%;
+    right: 68%;
+    -webkit-transform-origin: 100% 50%;
+    -moz-transform-origin: 100% 50%;
+    -o-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+
+}
+.overImage.Right{
+    color:red;
+    align:left;
+    top:63.5%;
+    left: 76.5%;
+    -webkit-transform-origin: 0% 50%;
+    -moz-transform-origin: 0% 50%;
+    -o-transform-origin: 0% 50%;
+    -ms-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+}
+#clever1 {
+  -ms-transform:rotate(50deg); /* IE 9 */
+  -moz-transform:rotate(50deg); /* Firefox */
+  -webkit-transform:rotate(50deg); /* Safari and Chrome */
+  -o-transform:rotate(50deg);
+}
+#clever2 {
+  -ms-transform:rotate(22deg); /* IE 9 */
+  -moz-transform:rotate(22deg); /* Firefox */
+  -webkit-transform:rotate(22deg); /* Safari and Chrome */
+  -o-transform:rotate(22deg);
+}
+#clever3 {
+  -ms-transform:rotate(-5deg); /* IE 9 */
+  -moz-transform:rotate(-5deg); /* Firefox */
+  -webkit-transform:rotate(-5deg); /* Safari and Chrome */
+  -o-transform:rotate(-5deg);
+}
+
+#dumb3 {
+  -ms-transform:rotate(50deg); /* IE 9 */
+  -moz-transform:rotate(50deg); /* Firefox */
+  -webkit-transform:rotate(50deg); /* Safari and Chrome */
+  -o-transform:rotate(50deg);
+}
+#dumb2 {
+  -ms-transform:rotate(20deg); /* IE 9 */
+  -moz-transform:rotate(20deg); /* Firefox */
+  -webkit-transform:rotate(20deg); /* Safari and Chrome */
+  -o-transform:rotate(20deg);
+}
+#dumb1 {
+  -ms-transform:rotate(-10deg); /* IE 9 */
+  -moz-transform:rotate(-10deg); /* Firefox */
+  -webkit-transform:rotate(-10deg); /* Safari and Chrome */
+  -o-transform:rotate(-10deg);
+}
+
+    </style>
+</head>
+<body>
+
+
+<div class="container-big">
+    <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li><a href="{{ urlPattern }}">Главная</a></li>
+            <li><a href="{{ urlPattern }}choice/">Оценки</a></li>
+
+            <li><a href="{{ urlPattern }}visitChoice/">Посещения</a></li>
+            <li><a href="{{ urlPattern }}achieve/">Достижения</a></li>
+            <li><a href="{{ urlPattern }}about/">Описание</a></li>
+            <!--     <li><a href="{{ urlPattern }}test/">Тестирование</a></li>  -->
+            <li><a href="{{ urlPattern }}contacts/">Контакты</a></li>
+        </ul>
+        <h3 class="muted">vZ's score</h3>
+    </div>
+<hr>
+<div class="row-fluid marketing">
+<div class="container">
+    <div class="jumbotron">
+   <div class="accordion" id="accordion2">
+   {% for letter in alphabet %}
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{ letter.0 }}">
+        <h3>{{ letter.0 }}</h3>
+      </a>
+    </div>
+    <div id="{{ letter.0 }}" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <table class="table table-condensed">
+            <tbody >
+            {% for every in letter.1 %}
+            <tr>
+                <td style="vertical-align:middle;width:40%;border: 0px white;">
+                    <h2 align="left"> {{ every.0 }} </h2>
+                </td>
+                <td style="border: 0px white; vertical-align:middle;">
+
+                    <a href="https://foursquare.com/oauth2/authenticate?client_id=IUJN41BDKRQPTVGSL0C0RISCIDOG120Q4K4ZGAHHDOBXTRW0&response_type=code&redirect_uri=http://vz10.net/swarm/{{ every.1 }}">
+
+                    Подключить сайт к своему Swarm</a>
+
+            </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+    </div>
+<div class="container-narrow">
+<hr>
+  <div class="footer">
+        <p>&copy; vZ 2015</p>
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42499564-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

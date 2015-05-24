@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>vZ's &middot; score</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="vZ">
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <style type="text/css">
+
+        .marketing h2 {
+            font-weight: normal;
+        }
+
+        .marketing .span4 p {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .buttonWidth {
+            width: 100%;
+        }
+
+        .btn btn-info buttonWidth {
+            margin-bottom: 3px;
+        }
+
+        .subject {
+            position: absolute;
+            display: none;
+            width: 700px;
+        }
+
+        #choce {
+
+        }
+
+        #choceabc {
+            position: absolute;
+            overflow: hidden;
+            width: 700px;
+        }
+
+        #grades {
+            width: 700px;
+        }
+
+        #back {
+            background-image: url({% static "images/back.png" %});
+            background-size: contain;
+            background-repeat: no-repeat;
+            font-size: 24px;
+            padding-left: 20px;
+            padding-right: 10px;
+            padding-top: 7px;
+            height: 50px;
+            color: #FFF;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-big">
+    <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li><a href="{{ urlPattern }}">Главная</a></li>
+            <li><a href="{{ urlPattern }}choice/">Оценки</a></li>
+
+            <li class="active"><a href="#">Посещения</a></li>
+            <li><a href="{{ urlPattern }}achieve/">Достижения</a></li>
+            <li><a href="{{ urlPattern }}about/">Описание</a></li>
+             <!--     <li><a href="{{ urlPattern }}test/">Тестирование</a></li>  -->
+            <li><a href="{{ urlPattern }}contacts/">Контакты</a></li>
+        </ul>
+        <h3 class="muted">vZ's score</h3>
+    </div>
+    <hr>
+    <img src="{% static "images/rabbidAbsent.jpg" %}" alt="" class="img-rounded img-responsive" align="center" height="768">
+</div>
+<div class="container-narrow">
+    <div class="jumbotron">
+        <h1>Посещения</h1>
+
+        <p class="lead">Выберите и класс и узнайте ВCE!!! <br>Кто исправно ходил на уроки и грыз гранит науки, а кто грыз неизвестно что и неизвестно где.</p>
+    </div>
+    <hr>
+    <div id="choce">
+            <div id="grades">
+                {% for grades in grade_list %}
+                    <a class="btn btn-block btn-success" width = '500px' href="{{ urlPattern }}visit/{{ grades.id }}"><h1>{{ grades.grade_name }}</h1></a>
+                {% endfor %}
+            </div>
+        </div>
+        <script>document.getElementById("choce").style.height = document.getElementById("grades").clientHeight + "px";</script>
+
+    <hr>
+    <div class="footer">
+        <p>&copy; vZ 2015</p>
+    </div>
+</div>
+
+    {% for theme in theme_list %}
+        <p>{{ score.theme.id }}</p>
+    {% endfor %}
+
+</div>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-42499564-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+</body>
+</html>
+</body>
+
+
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>vZ's &middot; score</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="vZ">
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <style type="text/css">
+
+    .marketing {
+        margin: 60px 0;
+    }
+	.jumbotron {
+		margin:0px;
+		padding-top:20px;
+	}
+	#welcome {
+		width:640px;
+		height:40px;
+	}
+	#name span {
+		text-decoration:underline;
+	}
+	#name-p {
+		margin-top:5px;
+		margin-left:187px;
+		width:350px;
+		font-size:16px;
+		text-align:right;
+		line-height:20px;
+		color:#666;
+	}
+	#test {
+		margin-top:20px;
+		font-size:24px;
+		text-align:center;
+		border-top:#DDD solid 1px;
+	}
+	.test-div {
+		text-align:left;
+		margin-left:131px;
+		padding-left:5px;
+		cursor:pointer;
+		border-radius:3px;
+	}
+	.test-div:hover {
+		background:#3CC;
+	}
+	.test-sp label {
+		font-weight:normal;
+		cursor:pointer;
+		width:356px;
+	}
+	.passedclass {
+		color:#AAA;
+		background:#FFF;
+	}
+	.passedclass:hover {
+		background:#FFF;
+	}
+		
+</style>
+<script>
+function passedtest(a) {
+	for(i=1;i<=document.getElementsByClassName("test-div").length;i++) {
+		if (document.getElementById("test-id-" + i).value==a) {
+			document.getElementById("test-id-" + i).disabled="true";
+			document.getElementsByClassName("test-div").item(i-1).className+=" passedclass";
+		}
+	}	
+}
+
+function chechtest() {
+	for(i=1;i<=document.getElementsByClassName("test-div").length;i++) {
+		if (document.getElementsByClassName("test-div").item(i-1).className=="test-div") {
+			document.getElementById("test-id-" + i).checked="true";
+			break;
+		}
+	}
+	
+}
+
+
+</script>
+</head>
+<body>
+<div class="container-big">
+    <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li><a href="{{ urlPattern }}">Главная</a></li>
+            <li><a href="{{ urlPattern }}choice/">Оценки</a></li>
+
+            <li><a href="{{ urlPattern }}visitChoice/">Посещения</a></li>
+            <li ><a href="{{ urlPattern }}achieve/">Достижения</a></li>
+             <li><a href="{{ urlPattern }}about/">Описание</a></li>
+       <!--     <li><a href="{{ urlPattern }}test/">Тестирование</a></li>  -->
+            <li><a href="{{ urlPattern }}contacts/">Контакты</a></li>
+        </ul>
+
+        <h3 class="muted">vZ's score</h3>
+    </div>
+</div>
+<hr>
+<div class="container-big">
+    <img src="{% static "images/test.jpg" %}" alt="" class="img-rounded">
+</div>
+
+<div class="container-narrow">
+    <div class="jumbotron">
+    <div id="welcome"> Добро пожаловать </div> 
+    <div id="name"> Вы проходите тест под именем <span>{{ student }}</span> </div>
+    <div id="name-p"> Внимание прохождение теста другим человеком или получение неожидано высокой оценки карается неожиданой двойкой </div>
+    <div id="test"> Выберите тест для прохождения </div>
+<form action="/testing/" method="post">
+
+    <input type="hidden" name="student" value="{{ student }}" />
+<br>
+     {% for every in tests %}
+       <div class="test-div">
+		<span class="test-sp">
+        	<input type="radio" value="{{ every.name }}" id="test-id-{{ every.id }}" name="testName">
+            <label for="test-id-{{ every.id }}"> {{ every.name }} </label>
+         </span>
+		</div>
+     {% endfor %}
+<hr>     
+    {% for every in passed %}
+    	<script> passedtest("{{ every.test.name }}") </script>
+    {% endfor %}
+    <script> chechtest() </script>
+<input type="submit" value="Начать тест">
+
+</form>
+
+</div>
+    <div class="footer">
+        <p>&copy; vZ 2015</p>
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42499564-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

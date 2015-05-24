@@ -1,0 +1,493 @@
+<html>
+<head>
+{% load staticfiles %}
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://www.xiper.net/examples/js-plugins/effects/color/js/jquery.color.js"></script>
+
+<style>
+.checknotall .q-score{
+
+	background:#F90;
+}.checktrue .q-score {
+	background:#0F0;
+}
+.checkfalse .q-score{
+	background:#F00;
+}
+
+body {
+}
+#main {
+	margin:0 auto;
+	width:900px;
+	background:#EEE;
+	border-radius:15px;
+}
+#name {
+	margin:0;
+	width:900px;
+	height:200px;
+	background-color:#3CC;
+	border-top-left-radius:15px;
+	border-top-right-radius:15px;
+	border-bottom:#000 solid 3px;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.7);
+}
+#name-text {
+	margin:0;
+	padding-top:30px;
+	margin-left:150px;
+	width:400px;
+	font-size:22px;
+	font-family:Segoe Print;
+}
+#name-h {
+	margin:0;
+	margin-top:20px;
+	margin-left:250px;
+	font-size:26px;
+	font-family:Segoe Print;
+}
+#time-clock {
+	position:absolute;
+	margin-left:680px;
+	width:150px;
+	height:150px;
+}
+#ciferblat {
+    position: absolute;
+}
+#minute {
+    position: absolute;
+    z-index: 10;
+}
+#time {
+	position:absolute;
+	margin-top:65px;
+	margin-left:570px;
+	width:100px;
+	text-align:right;
+	font-size:26px;
+	font-family: calibri;
+}
+.f100 {
+	color:#7FFF00;
+}
+.f80 {
+	color:#ADFF2F;
+}
+.f60 {
+	color:#FFFF00;
+}
+.f40 {
+	color:#FF8000;
+}
+.f20 {
+	color:#FF2400;
+}
+
+#time-text {
+	position:absolute;
+	margin-top:150px;
+	margin-left:580px;
+	width:300px;
+	text-align:right;
+}
+#main-q {
+	margin:5px 10px 5px 15px;	
+}
+.q {
+	margin-top: 35px;
+	padding:5px 10px 25px 10px;
+	width:800px;
+	background-color: #FAFAFA;
+	box-shadow: 0px 4px 4px rgba(0,0,0,0.5);
+}
+.choce-class {
+	margin:0px;
+}
+.questiontext {
+	text-decoration:underline;
+}
+.q-score {
+	position:absolute;
+	margin-left:790px;
+	padding-top: 5;
+	height: 45px;
+	width: 50px;
+	text-align: center;
+	font-size:25px;
+	font-family:Segoe Print;
+	background: #3CC;
+	border-radius: 25px;
+}
+#sub {
+	display:block;
+	width:900px;
+	padding-top:50px;
+	height:200px;
+}
+#sub-b {
+	margin:0 auto;
+	width:400px;
+	text-align:center;
+	font-size:24px;
+	font-family:Segoe Print;
+	background:#3CC;
+	border-radius:15px;
+	cursor:pointer;
+}
+#sub-p {
+	margin-top:10px;
+	margin-left:300px;
+	width:340px;
+	font-size:16px;
+	text-align:right;
+	text-height:10px;
+}
+#notall {
+	width:900px;
+	padding-top:20px;
+	height:230px;
+	display:none;
+}
+#notall-text {
+	margin-left:150px;
+	width:600px;
+	font-size:24px;
+	text-align:center;
+	border-bottom:#3CC solid 3px;
+}
+#notall-b1 {
+	position:absolute;
+	margin-left:100px;
+	width:300px;
+	text-align:center;
+	font-size:24px;
+	font-family:Segoe Print;
+	background:#3CC;
+	border-radius:15px;
+	cursor:pointer;	
+}
+#notall-b2 {
+	position:absolute;
+	margin-left:500px;
+	width:300px;
+	text-align:center;
+	font-size:24px;
+	font-family:Segoe Print;
+	background:#3CC;
+	border-radius:15px;
+	cursor:pointer;	
+}
+#results {
+	margin-top:20px;
+	width:900px;
+	height:230px;
+	background-color:#EEE;
+	border-bottom-left-radius:15px;
+	border-bottom-right-radius:15px;
+	display:none;
+}
+#results-text {
+	margin-left:50px;
+	text-decoration:underline;
+	font-size:30px;
+	font-family:Segoe Print;	
+}
+#results-score-bag {
+	position:absolute;
+	margin-top:5px;
+	margin-left:50px;
+	width:800px;
+	height:75px;
+	background-color:#FFF;
+}
+#results-score {
+	position:absolute;
+	margin-top:5px;
+	margin-left:50px;
+	padding-top:15px;
+	width:800px;
+	height:60px;
+	text-align:center;
+	font-size:24px;
+	font-family:Segoe Print;
+	color:#000;
+	background-color:#3CC;
+}
+#results-rating {
+	position:absolute;
+	margin-top:100px;
+	margin-left:280px;
+	display:none;
+}
+#results-rating-text {
+	font-size:24px;
+	font-family:Segoe Print;
+}
+#results-rating-score {
+	margin-left:8px;
+	font-size:24px;
+	text-decoration:underline;
+	font-family:Segoe Print;
+}
+#results-rating-des {
+	display:none;
+}
+#results-button {
+	margin:0 auto;
+	margin-top:150px;
+	width:400px;
+	text-align:center;
+	font-size:24px;
+	font-family:Segoe Print;
+	background:#3CC;
+	border-radius:15px;
+	cursor:pointer;
+}
+
+</style>
+<script>
+mh=0;
+mtime=0;
+$.fn.animateRotate = function(angle, duration, complete, easing) {
+    var args = $.speed(duration, easing, complete);
+    var step = args.step;
+    return this.each(function(i, e) {
+        args.step = function(now) {
+            $.style(e, 'transform', 'rotate(' + now + 'deg)');
+            if (step) return step.apply(this, arguments);
+        };
+
+        $({deg: mh}).animate({deg: angle}, args);
+    });
+};
+function loading() {
+	fulltime = {{ time }};
+	document.getElementById("time").innerHTML = fulltime + " мин";
+	m=fulltime*6;
+	mtime = (new Date()).getTime();
+	$('#minute').animateRotate(m,900,function(){mh=m});
+	tm=setInterval(function(){timeanim();},1000);
+};
+function timeanim() {
+	m=(fulltime -(((new Date()).getTime()-mtime)/60000));
+	var pro = (fulltime-((new Date()).getTime()-mtime)/60000)/fulltime;
+	//console.log(pro);
+	if (pro<=0.8 && pro>0.6) {$("#time").removeClass().addClass("f80")};
+	if (pro<=0.6 && pro>0.4) {$("#time").removeClass().addClass("f60")};
+	if (pro<=0.4 && pro>0.2) {$("#time").removeClass().addClass("f40")};
+	if (pro<=0.2 && pro>0  ) {$("#time").removeClass().addClass("f20")};
+	document.getElementById("time").innerHTML = Math.round(m) + " мин";
+	//if (Math.round(m)==5) {alert("Осталось 5 минут. Спешите.")};
+	//if (Math.round(m)==2) {alert("Вы играите с огнем осталось 2 минуты")};
+	if (Math.round(m)==1) {
+		m=0;
+		clearInterval(tm);
+		mtime = (new Date()).getTime();
+		document.getElementById("time").innerHTML = 60 + " сек";
+		ts=setInterval(function(){timeanimsec()},1000);
+	};
+	m=m*6;
+	$('#minute').animateRotate(m,500,function(){mh=m});
+}
+function timeanimsec() {
+	m=(-(((new Date()).getTime()-mtime)/1000));
+	if (m<-60) {
+		m=-60;
+		checkall(1);
+		clearInterval(ts);
+	};
+	document.getElementById("time").innerHTML = Math.round(60+m) + " ceк";
+	m=m*6;
+	$('#minute').animateRotate(m,500,function(){mh=m});
+}
+function shuffle(o){
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+};
+function rightvar(a,b) {
+	a = parseInt(a-1);
+	if (b.type==2) {
+		rar[a] = b.answers.slice(0,b.right);
+	} else {
+		rar[a] = b.answers.slice(0,1);
+	};
+	typeall[a]=b.type;
+	credits[a]=b.point;
+	sumall+=b.point;
+}
+function retanswer(str,nub) {
+	str = str.replace(/&quot;/g, '"');
+	str = JSON.parse(str);
+	rightvar(parseInt(nub),str,str);
+	document.write('<p class="questiontext">' + str.questiontext + '</p>'); 
+	if (parseInt(str.type)==3) {
+		document.write('<p class="choce-class">');
+		document.write('<input type="text"/>');
+		document.write('</p>');
+	} else {
+		var arrayrand = shuffle(str.answers);
+		if (parseInt(str.type)==1) {var inputtype = "radio"};
+		if (parseInt(str.type)==2) {var inputtype = "checkbox"};
+		for(var i=0;i<str.answers.length;i++) {
+			document.write('<p class="choce-class">');
+			document.write('<input type="' + inputtype + '" name="'+ nub + '"');
+			document.write('id="choce-'+ nub + '-' + i +'" value="' + arrayrand[i] + '">');
+			document.write('<label for="choce-'+ nub + '-' + i +'">');
+			document.write(arrayrand[i] + '</label></p>');
+		};
+	}
+	document.write('<div class="q-score">' + str.point + '</div>');
+}
+function check(a) {
+	var ret=[];
+	for(var i=0;i<document.getElementsByClassName('q').item(a).getElementsByTagName('input').length;i++) {
+		if (typeall[a]==3) {
+			ret.push(document.getElementsByClassName('q').item(a).getElementsByTagName('input').item(0).value);
+		}
+		if (document.getElementsByClassName('q').item(a).getElementsByTagName('input').item(i).checked) {
+			ret.push(document.getElementsByClassName('q').item(a).getElementsByTagName('input').item(i).value);
+		}
+	}
+	return ret;	
+}
+function checkclickall() {
+	out=1;
+	for(var i=0;i<document.getElementsByClassName('q').length;i++) {
+		if (check(i)==[]) {out=0;};		
+	}
+	return out;
+}
+function compare(a,b) {
+	if (a.length==b.length) {		
+		for(var i=0;i<a.length;i++) {
+			var r=0;
+			for(var j=0;j<b.length;j++) {
+				if (a[i]==b[j] && r==0) {r=1;}}
+			if (r==0) {return false;}}
+		return true;
+	} else {return false;};
+};
+function checkall(p) {
+	if (checkclickall() || p==1) {
+		var sum = 0;
+		for(var i=0;i<document.getElementsByClassName('q').length;i++) {
+			if (compare(check(i),rar[i])) {sum+=credits[i];}
+		}
+		var scorepro = parseInt(sum/sumall*100);
+		var scoresec = (1-sum/sumall)*10000
+		checkallpost(sum,sumall,scorepro,scoresec);
+		//checkallanim(sum,sumall,scorepro,scoresec);
+		
+	} else {
+		document.getElementById("sub").style.display = "none";
+		document.getElementById("notall").style.display = "block";
+	}
+}
+function checkallpost(a,b,c,t) {
+	$.ajax({
+		type:"POST",
+		url:"{{ urlPattern }}addscore/",
+		data: {
+			'name': '{{ student }}',
+			'mark': parseInt(c/10)+2,
+			'test': '{{ test }}'
+	 	},
+	 	success: function(){
+		 	checkallanim(a,b,c,t);
+			clearInterval(tm);
+			clearInterval(ts);
+	   }
+	});
+	
+}
+function checkallanim(a,b,c,t) {;
+	$("#results-score").animate({
+			width: 800*a/b,
+			marginLeft: 50+(800-800*(a/b))/2
+		},t,function(){checkalland(c)});
+	document.getElementById("sub").style.display = "none";
+	document.getElementById("notall").style.display = "none";
+	document.getElementById("results").style.display = "block";
+}
+function checkalland(c) {
+		for(var i=0;i<document.getElementsByClassName('q').length;i++) {
+			document.getElementsByClassName('q').item(i).className+=" check" + compare(check(i),rar[i]);
+		}	
+		document.getElementById('results-score').innerHTML=c+"%";
+		document.getElementById("results-rating-score").innerHTML= parseInt(c/10)+2;
+		document.getElementById("results-rating").style.display = "block";
+	
+}
+function notallclick(p) {
+	if (p) {
+		checkall(1)
+	} else {
+		document.getElementById("notall").style.display = "none";
+		document.getElementById("sub").style.display = "block";
+		}
+	
+	
+}
+function abc(a,b1,b2,b3,b4) {
+ return '{"questiontext": "'+a+'","answers":["' + b1 + '","' + b2 + '","' + b3 + '","' + b4 + '"],"point":1}';
+}
+function tohome() {
+	window.location='{{urlPattern}}';	
+}
+var credits = [];
+var rar = [];
+var typeall = [];
+var sumall = 0;
+var sum = 0;
+</script>
+</head>
+
+<body onLoad="loading()">
+<div id="main">
+   	<div id="name">
+    	<div id="time-clock"> 
+        	<div id="minute"><img src="{% static "images/m.png" %}" width="150" height="150"></div>
+            <div id="ciferblat"><img src="{% static "images/c.png" %}" width="150" height="150"></div>
+        </div>
+        <div id="time" class="f100"></div>
+        <div id="time-text">
+        	*Если время истечет вам поставят 2.
+        </div>
+       	<p id="name-text"> Вы проходите тест: </p>
+        <p id="name-h"> "{{ test }}"</p>
+    </div>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+	<div id="main-q">
+	{% for i in poll %}
+		<div class="q">	
+		<script> retanswer("{{ i }}","{{ forloop.counter }}"); </script>
+		</div>
+    {% endfor %}
+	</div>
+    <div id="sub">
+    	<div id="sub-b" onClick="checkall(0)"> Я готов увидить настоящую оценку моих знании </div>
+    	<div id="sub-p"> *Внимание нажатие на клавишу может привести к нарушению психики </div>
+    </div>
+    <div id="notall">
+    	<p id="notall-text"> Вы настолько уверены в своих незнаниях что специально не замечаете вопросы или вы случайно их пропустили </p>
+        <div id="notall-b1" onClick="notallclick(1)"> Я специально </div>
+        <div id="notall-b2" onClick="notallclick(0)"> Я случайно </div>
+        
+    </div>
+    <div id="results">
+        <div id="results-text"> Ваш результат: </div>
+        <div id="results-score-bag"> </div>
+        <div id="results-score"> </div>
+        <div id="results-rating"> 
+        	<span id="results-rating-text"> Это оценка </span>
+        	<span id="results-rating-score"> 12 </span>
+        	<span id="results-rating-des"> Молодец !!! </span>
+        </div>
+    	<div id="results-button" onClick="tohome()"> Вернутся на главную </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vZ's &middot; score</title>
+    <meta name="description" content="">
+    <meta name="author" content="vZ">
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <style type="text/css">
+
+    .featurette-divider {
+        margin: 30px 0;
+    }
+
+    .featurette {
+        padding-top: 30px;
+        overflow: hidden;
+    }
+
+    .featurette-image {
+        margin-top: -30px;
+    }
+
+    .featurette-image.pull-left {
+        margin-right: 20px;
+    }
+
+    .featurette-image.pull-right {
+        margin-left: 20px;
+    }
+
+    .featurette-heading {
+        font-size: 45px;
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -1px;
+    }
+
+    </style>
+</head>
+<body>
+<div class="container-big">
+    <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li><a href="{{ urlPattern }}">Главная</a></li>
+            <li><a href="{{ urlPattern }}choice/">Оценки</a></li>
+
+            <li><a href="{{ urlPattern }}visitChoice/">Посещения</a></li>
+            <li ><a href="{{ urlPattern }}achieve/">Достижения</a></li>
+            <li class="active"><a href="#">Описание</a></li>
+       <!--     <li><a href="{{ urlPattern }}test/">Тестирование</a></li>  -->
+            <li><a href="{{ urlPattern }}contacts/">Контакты</a></li>
+        </ul>
+        <h3 class="muted">vZ's score</h3>
+    </div>
+</div>
+<hr>
+<div class="container-big">
+   <img src="{% static "images/about.jpg" %}" alt="" class="img-rounded">
+    <div class="jumbotron">
+        <h1>Описание</h1>
+        <hr>
+        <div class="featurette">
+            <img class="featurette-image pull-right img-responsive" src="{% static "images/about1.jpg" %}">
+            <h2 class="featurette-heading">Историческая справка.</h3>
+            <p class="lead">С 2000 года в школах Украины действует 12-балльная шкала оценивания учебных достижений
+                учеников, введенная согласно Приказу Министерства образования и науки, молодежи и спорта Украины от
+                04.09.2000 № 428/48 «О внедрении 12-балльной шкалы оценивания учебных достижений учеников в системе
+                общего среднего образования».</p>
+        </div>
+        <hr class="featurette-divider">
+        <div class="featurette">
+            <img class="featurette-image pull-left img-responsive" src="{% static "images/about2.jpg" %}">
+            <h3 class="featurette-heading">Главный посыл. <span class="text-muted">Предположим невозможное.</span></h3>
+            <p class="lead">Будем считать, что каждый ученик знает каждую новую тему на 12 баллов, пока он не докажет
+                обратное.</p>
+        </div>
+        <hr class="featurette-divider">
+        <div class="featurette">
+            <img class="featurette-image pull-right img-responsive" src="{% static "images/about3.jpg" %}">
+            <h3 class="featurette-heading">Долой иллюзии. <span class="text-muted">Реально оценим ваши знания.</span></h3>
+            <p class="lead">Каждая полученная оценка, отличная от 12, будет снижать тематический балл, что в итоге
+                приведет нас к истинной оценке знаний по этой теме. Также обратите внимание, что оценка может только
+                уменьшаться, это хорошо видно на рисунке. Движения вверх не предусмотрено.</p>
+        </div>
+            <hr class="featurette-divider">    
+
+        <div class="featurette">
+            <img class="featurette-image pull-left img-responsive" src="{% static "images/achieveinfo.jpg" %}">
+            <h2 class="featurette-heading">Медаль зайчика.</h2>
+            <p class="lead">Золотая медаль зайчика - является высшим из всех возможных достижений и означает, что целую неделю вы были идеальным учеником и учились
+                только лишь на 12. Если же ваш средний бал за неделю ниже, то вы дойстойны лишь части этой медали. Каждая
+                медаль живет 6 недель, после чего ее забирает специально обученный человек.</p>
+        </div>
+        <hr class="featurette-divider">
+        <div class="featurette">
+            <img class="featurette-image pull-right img-responsive" src="{% static "images/ranksInfo.jpg" %}">
+            <h2 class="featurette-heading">Почетные звания.</h2>
+            <p class="lead">Издревле наиболее достойных людишек отмечали званиями. И мы не будем исключением. За каждую, тему которую вы закрыли на оценку более 6 ваше звание будет расти.
+            Если же итоговая оценка за тему окажется ниже 4, то ваше звание будет понижаться. Все начинают с рядовых и растут к Генералам или опускаются к Тупышам.</p>
+        </div>
+         <hr class="featurette-divider">
+        <div class="featurette">
+            <img class="featurette-image pull-left img-responsive" src="{% static "images/about5.jpg" %}">
+            <h3 class="featurette-heading">Посещения.
+            </h3>
+            <p class="lead">Дети, которые исправно ходили на уроки информатики и посетили более 85% уроков в теме, автоматически получают +1 бал за эту тему. На странице "Посещения" можно увидеть статистику:
+                зеленый цвет - пришел вовремя, красный - опоздал (это считается лишь за полурока) и белый не пришел вообще. На странице с оценками хорошие дети
+            отмечены зеленой птичкой, а прогульщики красным крестиком.</p>
+        </div>
+        <!--   <hr class="featurette-divider">
+        <div class="featurette">
+            <img class="featurette-image pull-right img-responsive" src="{% static "images/about4.jpg" %}">
+            <h3 class="featurette-heading">Прекратить истерику. <span class="text-muted">Успокаиваем особо нервных.</span>
+            </h3>
+            <p class="lead">Ваша тематическая оценка будет такой же точно, как если бы ее рассчитывали путем вычисления
+                среднего арифметического. Изменился лишь способ отображения вашего пути к этой оценке.</p>
+        </div> -->
+    </div>
+    </div>
+</div>
+<div class="container-narrow">
+     <hr>
+  <div class="footer">
+        <p>&copy; vZ 2015</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42499564-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

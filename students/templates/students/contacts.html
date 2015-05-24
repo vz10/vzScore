@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>vZ's &middot; score</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="vZ">
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <style type="text/css">
+
+    .inact{
+        opacity: 0.2;
+    }
+
+ </style>
+</head>
+<body>
+<div class="container-big">
+    <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li ><a href="{{ urlPattern }}">Главная</a></li>
+            <li><a href="{{ urlPattern }}choice/">Оценки</a></li>
+
+            <li><a href="{{ urlPattern }}visitChoice/">Посещения</a></li>
+            <li ><a href="{{ urlPattern }}achieve/">Достижения</a></li>
+            <li><a href="{{ urlPattern }}about/">Описание</a></li>
+       <!--     <li><a href="{{ urlPattern }}test/">Тестирование</a></li>  -->
+            <li class="active"><a href="#">Контакты</a></li>
+        </ul>
+
+        <h3 class="muted">vZ's score</h3>
+    </div>
+</div>
+
+<hr>
+ <div class="container-big">
+<img src="{% static "images/contacts.jpg" %}" alt="" class="img-rounded img-responsive"  align="center" height="768">
+
+    <div class="jumbotron">
+        <h1>Контакты</h1>
+        <hr>
+        <table align="center">
+            <tr>
+                <td><img class="inact" src="{% static "images/36.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/37.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/38.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/39.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/40.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/41.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/42.jpg" %}"/></td>
+            </tr>
+            <tr>
+                <td><img class="inact" src="{% static "images/1.jpg" %}"/></td>
+                 <td><a href="mailto:i.batozskiy@gmail.com" target="blank"> <img src="{% static "images/20.jpg" %}"/></a>
+                </td>
+                <td><img class="inact" src="{% static "images/3.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/4.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/5.jpg" %}"/></td>
+                <td><a href="http://www.twitter.com/vz10" target="blank"> <img src="{% static "images/6.jpg" %} "/></a>
+                </td>
+                <td><img class="inact" src="{% static "images/31.jpg" %}"/></td>
+            </tr>
+            <tr>
+
+                <td><img class="inact" src="{% static "images/8.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/9.jpg" %}"/></td>
+                <td><a href="https://www.facebook.com/I.batozskiy" target="blank"> <img
+                        src="{% static "images/15.jpg" %}"/> </a></td>
+                <td><img class="inact" src="{% static "images/11.jpg" %}"/></td>
+                <td><a href="http://www.vk.com/id8310495" target="blank"> <img src="{% static "images/7.jpg" %}"/> </a>
+                </td>
+                <td><img class="inact" src="{% static "images/12.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/32.jpg" %}"/></td>
+            </tr>
+            <tr>
+                <td><img class="inact" src="{% static "images/13.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/14.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/10.jpg" %}"/></td>
+                 <td><a href="http://instagram.com/vz10" target="blank"> <img src="{% static "images/23.jpg" %}"/></a>
+                </td>
+                <td><img class="inact" src="{% static "images/17.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/18.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/33.jpg" %}"/></td>
+            </tr>
+            <tr>
+                <td><img class="inact" src="{% static "images/19.jpg" %}"/></td>
+               <td><img class="inact" src="{% static "images/2.jpg" %}"/></td>
+                <td><a href="http://ask.fm/vZ1_0" target="blank"> <img src="{% static "images/21.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/22.jpg" %}"/></td>
+               <td><img class="inact" src="{% static "images/16.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/24.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/34.jpg" %}"/></td>
+            </tr>
+            <tr>
+                <td><img class="inact" src="{% static "images/25.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/26.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/27.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/28.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/29.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/30.jpg" %}"/></td>
+                <td><img class="inact" src="{% static "images/35.jpg" %}"/></td>
+            </tr>
+        </table>
+  </div>
+</div>
+<div class="container-narrow">
+     <hr>
+  <div class="footer">
+        <p>&copy; vZ 2015</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42499564-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
